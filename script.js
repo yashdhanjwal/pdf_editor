@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         textArea.style.height = '100%';
         textDiv.appendChild(textArea);
 
-        pdfViewer.appendChild(textDiv);
+        pageContainer.appendChild(textDiv);
 
         interact(textDiv)
             .draggable({
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pdfjsDoc = await loadingTask.promise;
 
         renderPage(currentPage);
-        pdfViewer.removeChild(textDiv);
+        pageContainer.removeChild(textDiv);
     });
 
     saveBtn.addEventListener('click', async () => {
