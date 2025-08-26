@@ -181,6 +181,10 @@ document.addEventListener('DOMContentLoaded', () => {
         textArea.style.height = '100%';
         textDiv.appendChild(textArea);
 
+        textDiv.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
         pageContainer.appendChild(textDiv);
 
         interact(textDiv)
@@ -328,7 +332,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentMode === 'draw' && isDrawing) {
             isDrawing = false;
 
-            const scale = 1.5;
+            setTimeout(async () => {
+                const scale = 1.5;
             const pageHeight = pdfDoc.getPages()[currentPage - 1].getHeight();
             const pathData = currentPath.map((p, i) => {
                 const x = p.x / scale;
@@ -363,6 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pdfDoc = await PDFDocument.load(pdfBytes);
 
             renderPage(currentPage);
+            }, 0);
         } else if (currentMode === 'highlight') {
             const selection = window.getSelection();
             if (selection.rangeCount === 0 || selection.isCollapsed) return;
