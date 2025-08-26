@@ -260,8 +260,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const pdfBytes = await pdfDoc.save();
+
+        // For rendering
         const loadingTask = pdfjsLib.getDocument({ data: pdfBytes });
         pdfjsDoc = await loadingTask.promise;
+
+        // For future edits
+        pdfDoc = await PDFDocument.load(pdfBytes);
 
         renderPage(currentPage);
         pageContainer.removeChild(textDiv);
@@ -349,8 +354,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const pdfBytes = await pdfDoc.save();
+
+            // For rendering
             const loadingTask = pdfjsLib.getDocument({ data: pdfBytes });
             pdfjsDoc = await loadingTask.promise;
+
+            // For future edits
+            pdfDoc = await PDFDocument.load(pdfBytes);
 
             renderPage(currentPage);
         } else if (currentMode === 'highlight') {
@@ -386,8 +396,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const pdfBytes = await pdfDoc.save();
+
+            // For rendering
             const loadingTask = pdfjsLib.getDocument({ data: pdfBytes });
             pdfjsDoc = await loadingTask.promise;
+
+            // For future edits
+            pdfDoc = await PDFDocument.load(pdfBytes);
 
             renderPage(currentPage);
 
