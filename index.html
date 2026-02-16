@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online PDF Editor by Yash Dhanjwal</title>
+    <meta name="description" content="A free, fast, and secure online PDF editor to edit, annotate, and sign your PDF documents. No data is uploaded to any server.">
+    <meta name="keywords" content="PDF Editor, Online PDF Editor, Free PDF Editor, Edit PDF, Annotate PDF, Sign PDF, Yash Dhanjwal">
+    <meta name="author" content="Yash Dhanjwal">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf_viewer.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Free Online Tools by Yash Dhanjwal</div>
+            <ul class="nav-links">
+                <li><a href="https://www.yashdhanjwal.com" target="_blank">Website</a></li>
+                <li><a href="mailto:info@yashdhanjwal.com">Email</a></li>
+                <li><a href="tel:+919990033043">Mobile</a></li>
+            </ul>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>PDF Editor</h1>
+            <div id="pdf-editor">
+                <div id="upload-area" class="upload-area">
+                    <p>Drag & Drop your PDF here or</p>
+                    <input type="file" id="file-picker" accept=".pdf" hidden>
+                    <button id="upload-button">Select PDF</button>
+                </div>
+                <div id="editor-container" style="display: none;">
+                    <div id="toolbar">
+                        <div class="tool-group">
+                            <button id="prev-page">Previous</button>
+                            <span id="page-num"></span>
+                            <button id="next-page">Next</button>
+                        </div>
+                        <div class="tool-group">
+                            <button id="add-text-btn">Add Text</button>
+                            <div id="text-controls" class="hidden">
+                                <input type="text" id="text-input" placeholder="Enter text">
+                                <select id="font-select">
+                                    <option value="Helvetica">Helvetica</option>
+                                    <option value="Times-Roman">Times New Roman</option>
+                                    <option value="Courier">Courier</option>
+                                </select>
+                                <input type="number" id="font-size-input" value="12">
+                                <input type="color" id="font-color-input" value="#000000">
+                                <button id="add-text-to-pdf-btn">Add</button>
+                            </div>
+                        </div>
+                        <div class="tool-group">
+                            <button id="save-btn">Save & Download</button>
+                        </div>
+                        <div class="tool-group">
+                            <button id="draw-btn">Draw</button>
+                            <div id="draw-controls" class="hidden">
+                                <input type="color" id="draw-color-input" value="#ff0000">
+                                <input type="number" id="draw-thickness-input" value="2">
+                            </div>
+                        </div>
+                        <div class="tool-group">
+                            <button id="highlight-btn">Highlight</button>
+                            <div id="highlight-controls" class="hidden">
+                                <input type="color" id="highlight-color-input" value="#ffff00">
+                            </div>
+                        </div>
+                        <!-- Editing tools will be added here -->
+                    </div>
+                    <div id="pdf-viewer">
+                        <div id="page-container" style="position: relative;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Free Online Tools by Yash Dhanjwal. All Rights Reserved.</p>
+        <p>Hosted on Hostingial.com</p>
+    </footer>
+
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://unpkg.com/brotli-dec-wasm@1.3.2/brotli.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
+
+    <!-- PDF.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.worker.min.js';
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
